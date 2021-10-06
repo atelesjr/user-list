@@ -1,10 +1,10 @@
-
-import './App.css';
+import * as S from './styles'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       USERLISTS
+      <S.Global />
     </div>
   );
 }

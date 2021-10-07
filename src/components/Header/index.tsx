@@ -4,13 +4,13 @@ import * as S from './styles'
 import Input from '../generics/Input'
 import Dropdown from '../generics/Dropdown'
 
-interface Search {
+export interface SearchProps {
     field: string
     value: string
 }
 
 interface HeaderProps {
-    setSearch: (props: Search) => void
+    setSearch: (props: SearchProps) => void
 }
 
 const list = [
@@ -35,8 +35,6 @@ const Header = ({ setSearch }:HeaderProps) => {
         } 
 
     }, [field, text, setSearch, previousFiled])
-
-
 
 
     return (

@@ -12,18 +12,21 @@ export const Global = createGlobalStyle`
     }
 
     html, #root {
+        box-sizing: border-box;
+        font-size: 65.5%; /*1rem = 10px, 10/16px = 62.5% */
         line-height: 1.15; 
         -webkit-text-size-adjust: 100%; 
+        
     }
 
     body{
         margin: 0;
         font-family:'Roboto', sans-serif;
-        font-size: 14px;
+        font-size: 1.4rem;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         letter-spacing: 0.93px;
-        color: #535557;
+        color: #101820;
 
         background-color: #f3f3f3;
         min-height: 100vh;

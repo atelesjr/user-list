@@ -5,9 +5,10 @@ import { User } from '../../api'
 interface BodyProps {
     list: User[]
     isLoading: boolean
+    error: boolean
 }
 
-const Body = ({ list, isLoading }:BodyProps) => {
+const Body = ({ list, isLoading, error }:BodyProps) => {
 
     return (
         <S.Body>
@@ -16,12 +17,16 @@ const Body = ({ list, isLoading }:BodyProps) => {
                     const { name, age } = user
 
                     return (
-                        <S.User key={ name }>
+                        <S.User key={ i }>
                           { name }, { age }
                         </S.User>
                     )
                 })
             }
+            {
+                error && <h2>Server might have some issue. Please try again later.</h2>
+            }
+
             {
                 isLoading && <h2>Loading...</h2>
             }

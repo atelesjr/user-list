@@ -19,12 +19,12 @@ const list = [
 ]
 
 const Header = ({ setSearch }:HeaderProps) => {
-
     const [ text, setText ] = useState('')
     const [ field, setField ] = useState<string>(list[0].value)
     const [ previousFiled, setPreviousField ] = useState<string>('')
 
     useEffect(() => {
+        console.log('search', text)
         if( field !== previousFiled){
             setPreviousField(field)
             setText('')
@@ -33,6 +33,10 @@ const Header = ({ setSearch }:HeaderProps) => {
         if(text !== '' &&  field === previousFiled) {
             setSearch({ field,value: text })
         } 
+
+        if( text === ''){
+            setSearch({ field, value: '' })
+        }
 
     }, [field, text, setSearch, previousFiled])
 

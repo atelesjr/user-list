@@ -9,12 +9,21 @@ import { getUsers, User } from './api'
 function App() {
   const [ search, setSearch ] = useState<SearchProps>({ field: '', value: ''})
   const [ list, setList ] = useState<User[]>([])
+  const [ filteredList, setFilteredList ] = useState<undefined | User[]>(undefined)
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
+  const [ errorApi, setErrorApi ] = useState<boolean>(false)
 
   const getUsersList = async () => {
     setIsLoading(true)
+
     const response = await getUsers()
-    response && setList(response?.data)
+
+    if(response?.status){
+      response && setList(response?.data)
+    } else {
+      setErrorApi(true)
+    }
+    
     setIsLoading(false)
   }
 
@@ -23,13 +32,39 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log('search', search)
+    const setFilter = (search: SearchProps) => {
+      const { field, value } = search
+      let result
+
+      setIsLoading(true)
+
+      if(field === 'name') {
+        result = list?.filter((user) => user.name === value)
+      }
+
+      if(field === 'age') {
+        result = list?.filter((user) => user.age === +value)
+      }
+
+      if(value === ''){
+        setFilteredList(undefined)
+        setIsLoading(false)
+      } else {
+        console.log(result)
+        setFilteredList(result)
+        setIsLoading(false)
+      }
+    }
+    
+    setTimeout(setFilter, 3000, search)
+    // eslint-disable-next-line 
   }, [search])
+
 
   return (
     <S.Container>
       <Header setSearch={ setSearch }/>
-      <Body list={list} isLoading={isLoading}/>
+      <Body list={ filteredList ?? list } isLoading={isLoading} error={errorApi} />
       <S.Global />
     </S.Container>
   );

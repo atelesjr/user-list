@@ -8,7 +8,6 @@ export interface SearchProps {
     field: string
     value: string
 }
-
 interface HeaderProps {
     setSearch: (props: SearchProps) => void
 }
@@ -24,7 +23,7 @@ const Header = ({ setSearch }:HeaderProps) => {
     const [ previousFiled, setPreviousField ] = useState<string>('')
 
     useEffect(() => {
-        console.log('search', text)
+        
         if( field !== previousFiled){
             setPreviousField(field)
             setText('')

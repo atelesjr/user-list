@@ -13,7 +13,7 @@ export const Header = styled.header`
     .title {
         margin: 0  1rem 1rem 0;
 
-        font-size: 20px;
+        font-size: 2rem;
         color: #fff;
     }
 
@@ -32,8 +32,6 @@ export const Header = styled.header`
         .input{
             width: calc(100% - 9.3rem);
         }
-
-
     }
 
     @media ${ device.tablet} {

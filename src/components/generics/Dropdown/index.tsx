@@ -11,7 +11,6 @@ interface DropdownProps {
     onChange: (value: string) => void
 }
 
-
 const Dropdown = ( {onChange, list }: DropdownProps) => {
     const [ open, setOpen ] = useState(false)
     const [ label , setlabel ] = useState(list[0].label)
@@ -20,7 +19,6 @@ const Dropdown = ( {onChange, list }: DropdownProps) => {
         setlabel(label)
         onChange(value)
         setOpen(false)
-        
     }
 
     return (
@@ -46,9 +44,7 @@ const Dropdown = ( {onChange, list }: DropdownProps) => {
                         }
                     </S.List>
                 )
-
             }
-
         </S.Dropdown>
     )
 }

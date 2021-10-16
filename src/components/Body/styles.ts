@@ -2,54 +2,60 @@ import styled from 'styled-components'
 
 export const Body = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-flow: wrap;
-
-    width: 100%;
-    height: auto;
-    max-height: 90vh;
-    box-sizing: border-box;
-    overflow-y: auto;
-
-    padding: 1rem 1rem 2rem;
-    background-color: #fff;
-
-`
-
-export const User = styled.div`
-    display: flex;
+    flex-flow: column;
     align-items: center;
 
-    position: relative;
-
-    width: 20rem;
-    height: 5rem;
+    width: 100%;
+    max-height: 85vh;
     box-sizing: border-box;
-    border: .2rem solid #00bcc1;
-    background-color: #fff;
-    border-radius: 1rem ;
-    padding: 1rem 1rem 1rem 5rem;
-    margin: 0 1rem 1.2rem 0;
-    -webkit-box-shadow: 0px 1px 14px 0px rgba(0,0,0,0.15); 
-    box-shadow: 0px 1px 14px 0px rgba(0,0,0,0.15);;
-    overflow: hidden;
+    padding: 1rem 1rem 2rem;
+    overflow-y: auto;
+   
 
+    .tableArea {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: wrap;
 
-    font-size: 1.2rem;
-    color: #444;
-
-    &:before {
-        position: absolute;
-        z-index: 0;
-        top: -.2rem;
-        left: -.4rem;
-
-        content: "\f406";
-        font-family: 'FontAwesome';
-        font-size: 5rem;
-        color:  #ccc;
-        opacity: .6;
-    
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        background-color: #fff;
+        
     }
+
+    ul {
+        display: flex;
+        justify-content: center;
+
+        width: 80%;
+        height: 4rem;
+        padding: 2rem;
+        margin-top: 1rem;
+        list-style: none;
+
+        font-size: 1.5rem;
+
+        a{ 
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: .5rem;
+            border: 1px solid #00bcc1;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            user-select: none;
+
+            &:hover {
+                background-color: #00bcc1;
+                color: #fff;
+            }
+        }
+
+        .paginationAtive a {
+            background-color: #00bcc1;
+            color: #fff;
+        }
+    }
+
 `

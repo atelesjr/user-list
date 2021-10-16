@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as S from './styles'
 // components 
 import Header, { SearchProps } from './components/Header'
@@ -10,7 +10,7 @@ function App() {
   const [ search, setSearch ] = useState<SearchProps>({ field: '', value: ''})
   const [ list, setList ] = useState<User[]>([])
   const [ filteredList, setFilteredList ] = useState<undefined | User[]>(undefined)
-  const [ isLoading, setIsLoading ] = useState<boolean>(false)
+  const [ isLoading, setIsLoading ] = useState<boolean>(true)
   const [ errorApi, setErrorApi ] = useState<boolean>(false)
 
   const getUsersList = async () => {
@@ -19,52 +19,60 @@ function App() {
     const response = await getUsers()
 
     if(response?.status){
-      response && setList(response?.data)
+      setList(response?.data)
     } else {
       setErrorApi(true)
     }
     
     setIsLoading(false)
+    
   }
 
   useEffect(() => {
     getUsersList()
   }, [])
 
-  useEffect(() => {
-    const setFilter = (search: SearchProps) => {
+  const setFilter = useCallback(
+    (search: SearchProps) => {
       const { field, value } = search
       let result
 
       setIsLoading(true)
-
-      if(field === 'name') {
+      
+      if(field === 'name' && value !== '') {
         result = list?.filter((user) => user.name === value)
       }
 
-      if(field === 'age') {
+      if(field === 'age' && value !== '' ) {
         result = list?.filter((user) => user.age === +value)
       }
 
       if(value === ''){
         setFilteredList(undefined)
-        setIsLoading(false)
       } else {
-        console.log(result)
         setFilteredList(result)
-        setIsLoading(false)
       }
-    }
-    
+
+      setIsLoading(false)
+    },
+    [list],
+  )
+
+  useEffect(() => {
     setTimeout(setFilter, 3000, search)
     // eslint-disable-next-line 
-  }, [search])
+  }, [search.value])
 
 
   return (
     <S.Container>
       <Header setSearch={ setSearch }/>
-      <Body list={ filteredList ?? list } isLoading={isLoading} error={errorApi} />
+      <Body 
+        list={ filteredList ?? list } 
+        isLoading={isLoading} 
+        error={errorApi} 
+        search={search}
+      />
       <S.Global />
     </S.Container>
   );

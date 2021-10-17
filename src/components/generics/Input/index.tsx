@@ -6,11 +6,12 @@ interface InputProps {
     name: string
     placeholder: string
     value: string
-    clearInput?: boolean
     onChange: (value: string) => void
+    clearInput?: boolean
+    rest?: any
 }
 
-const Input = ({name, placeholder, value, onChange, clearInput }: InputProps) => {
+const Input = ({name, placeholder, value, onChange, clearInput, ...rest }: InputProps) => {
 
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value
@@ -24,6 +25,8 @@ const Input = ({name, placeholder, value, onChange, clearInput }: InputProps) =>
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => handleChange(e)}
+                autoComplete="off"
+                {...rest}
             />
             
             {

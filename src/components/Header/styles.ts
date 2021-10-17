@@ -34,10 +34,23 @@ export const Header = styled.header`
         }
     }
 
-    @media ${ device.tablet} {
+    @media ${ device.tablet } {
         flex-flow: row;
         justify-content: space-between;
         align-items: center;
+
+        .title {
+            margin: 0 4rem 0 0;
+        }
+
+        .form {
+            width: 60%;
+        }
+    }
+
+    @media ${ device.laptop } {  
+        padding: 1rem 14rem 1rem 13rem;
+        
     }
 
 `

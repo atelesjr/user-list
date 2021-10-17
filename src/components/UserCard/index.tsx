@@ -3,10 +3,9 @@ import * as S from './styles'
 interface UserCardProps {
     name: string
     age: number
-    index: number
 }
 
-const UserCard =({ name, age, index}: UserCardProps) => {
+const UserCard =({ name, age}: UserCardProps) => {
     
     return (
         <S.UserCard>

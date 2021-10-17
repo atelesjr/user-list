@@ -15,7 +15,7 @@ export const Button = styled.div`
 
     width: 100%;
 
-    color: #fff;
+    color: #CCC;
 
     i{
         margin-bottom: .5rem;

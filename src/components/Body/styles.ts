@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles'
 
 export const Body = styled.div`
     display: flex;
@@ -29,17 +30,16 @@ export const Body = styled.div`
         display: flex;
         justify-content: center;
 
-        width: 80%;
-        height: 4rem;
+        width: 100%;
         padding: 2rem;
-        margin-top: 1rem;
+        margin: 1rem 0 2rem;
         list-style: none;
 
-        font-size: 1.5rem;
+        font-size: 1.1rem;
 
         a{ 
-            padding: 1rem;
-            margin: 1rem;
+            padding: .7rem .5rem;
+            margin: .5rem;
             border-radius: .5rem;
             border: 1px solid #00bcc1;
             cursor: pointer;
@@ -55,6 +55,25 @@ export const Body = styled.div`
         .paginationAtive a {
             background-color: #00bcc1;
             color: #fff;
+        }
+    }
+
+    @media ${ device.tablet } {
+
+        ul {
+            width: 80%;
+            height: 4rem;
+            padding: 2rem;
+            margin-top: 1rem;
+
+            font-size: 1.5rem;
+        }
+
+    }
+
+    @media ${ device.laptop } {
+        .tableArea {
+            max-width: 110rem;
         }
     }
 

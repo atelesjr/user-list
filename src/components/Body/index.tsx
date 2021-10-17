@@ -16,12 +16,25 @@ interface BodyProps {
 
 const Body = ({ list, isLoading, error, search }:BodyProps) => {
     const [ users, setUsers ] = useState<User[]>([])
-    // Pagination
-    const [ pageNumber, setPageNumber] = useState(0)
+    const { value } = search
+    // screen resolution
+    const [ width, setWidth ] = useState<number>(window.screen.width)
+    // pagination
+    const [ pageNumber, setPageNumber] = useState<number>(0)
     const usersPage = 50
     const pagesVisited = pageNumber * usersPage
     const pageCount = list.length / usersPage
-    const { value } = search
+
+
+    const handleResize = () => {
+        const screenSize = window.screen.width;
+        setWidth(screenSize)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [width])
 
     useEffect(() => {
         setPageNumber(0)
@@ -46,7 +59,7 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
             users.map((user, i:number) => {
                 const { name, age } = user
                 
-                return <UserCard key={ i } index={i} name={ name } age={ age } />
+                return <UserCard key={ i } name={ name } age={ age } />
             })
         )},
         [users]
@@ -58,7 +71,7 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
                 <S.Body>
                     <div className="tableArea">
                         {
-                            !isLoading &&(
+                            !isLoading && !error && (
                                 (users.length > 0)                 
                                 ? displayUsers
                                 : (
@@ -82,7 +95,7 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
                             <ReactPaginate 
                                 pageCount={pageCount}
                                 pageRangeDisplayed={1}
-                                marginPagesDisplayed={3}
+                                marginPagesDisplayed={ width <= 425 ? 2 : 4 }
                                 previousLabel='Previous'
                                 nextLabel='Next'
                                 onPageChange={ changePage }

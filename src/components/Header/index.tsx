@@ -42,21 +42,24 @@ const Header = ({ setSearch }:HeaderProps) => {
 
     return (
         <S.Header>
-            <span className="title">Users List</span>
-            <div className="form">
-                <div className="dropdown">
-                    <Dropdown onChange={setField} list={ list }/>
-                </div>
-                <div className="input">
-                    <Input 
-                        name='search'
-                        placeholder='Filter name'
-                        value={text}
-                        onChange={ setText }
-                        clearInput
-                    />
+            <div className="container">
+                <span className="title">Users List</span>
+                <div className="form">
+                    <div className="dropdown">
+                        <Dropdown onChange={setField} list={ list }/>
+                    </div>
+                    <div className="input">
+                        <Input 
+                            name='search'
+                            placeholder='Filter name'
+                            value={text}
+                            onChange={ setText }
+                            clearInput
+                        />
+                    </div>
                 </div>
             </div>
+           
         </S.Header>
     )
 }

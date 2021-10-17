@@ -30,7 +30,7 @@ const Input = ({name, placeholder, value, onChange, clearInput, ...rest }: Input
             />
             
             {
-                clearInput && (
+                clearInput && value !== '' && (
                     <Button 
                         name='clear' 
                         onClick={() => onChange('')} 

@@ -25,7 +25,6 @@ function App() {
     }
     
     setIsLoading(false)
-    
   }
 
   useEffect(() => {
@@ -37,8 +36,6 @@ function App() {
       const { field, value } = search
       let result
 
-      setIsLoading(true)
-      
       if(field === 'name' && value !== '') {
         result = list?.filter((user) => user.name === value)
       }
@@ -59,6 +56,7 @@ function App() {
   )
 
   useEffect(() => {
+    setIsLoading(true)
     setTimeout(setFilter, 3000, search)
     // eslint-disable-next-line 
   }, [search.value])

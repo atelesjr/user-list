@@ -14,13 +14,13 @@ To start this project:
 **yarn Test**
 
 **general view:**
-![user-list](https://github.com/atelesjr/user-list/blob/master/public/img/01.PNG)
+![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/01.png)
 
 **search by name:**
-![user-list](https://github.com/atelesjr/user-list/blob/master/public/img/02.PNG)
+![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/02.PNG)
 
 **search by age:**
-![user-list](https://github.com/atelesjr/user-list/blob/master/public/img/03.PNG)
+![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/03.PNG)
 
 **mobile screen:**
-![user-list](https://github.com/atelesjr/user-list/blob/master/public/img/04.PNG)
+![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/04.PNG)

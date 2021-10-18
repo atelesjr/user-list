@@ -41,7 +41,7 @@ const Header = ({ setSearch }:HeaderProps) => {
 
 
     return (
-        <S.Header>
+        <S.Header data-test='header_comp'>
             <div className="container">
                 <span className="title">Users List</span>
                 <div className="form">

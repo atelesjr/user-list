@@ -73,6 +73,7 @@ function App() {
       />
       <S.Global />
     </S.Container>
+    
   );
 }
 

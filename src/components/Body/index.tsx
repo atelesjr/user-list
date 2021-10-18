@@ -25,7 +25,6 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
     const pagesVisited = pageNumber * usersPage
     const pageCount = list.length / usersPage
 
-
     const handleResize = () => {
         const screenSize = window.screen.width;
         setWidth(screenSize)
@@ -68,7 +67,7 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
     
     return (
             <>
-                <S.Body>
+                <S.Body data-test="body_comp">
                     <div className="tableArea">
                         {
                             !isLoading && !error && (
@@ -91,7 +90,7 @@ const Body = ({ list, isLoading, error, search }:BodyProps) => {
                     </div>
 
                     {
-                        !isLoading && users.length > 0 && (                    
+                        !isLoading && pageCount > 1 && (                    
                             <ReactPaginate 
                                 pageCount={pageCount}
                                 pageRangeDisplayed={1}

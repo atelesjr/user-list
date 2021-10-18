@@ -12,7 +12,6 @@ const UserCard =({ name, age}: UserCardProps) => {
             { name }, { age }
         </S.UserCard>
     )
-
 }
 
 export default UserCard

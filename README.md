@@ -21,5 +21,6 @@ To TEST this project:
 **search by age:**
 ![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/03.png)
 
-**mobile screen:**
+**mobile screen:** 
+ 
 ![user-list](https://github.com/atelesjr/user-list/blob/main/public/img/04.png)

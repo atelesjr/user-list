@@ -7,7 +7,7 @@ export const Body = styled.div`
     align-items: center;
 
     width: 100%;
-    max-height: 85vh;
+    max-height: 100vh;
     box-sizing: border-box;
     padding: 1rem 1rem 2rem;
     overflow-y: auto;
@@ -82,6 +82,7 @@ export const Body = styled.div`
     }
 
     @media ${ device.tablet } {
+        max-height: 90vh;
 
         ul {
             width: 80%;
@@ -99,7 +100,6 @@ export const Body = styled.div`
             }
             
         }
-
     }
 
     @media ${ device.laptop } {
@@ -107,5 +107,4 @@ export const Body = styled.div`
             max-width: 110rem;
         }
     }
-
 `

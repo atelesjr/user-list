@@ -30,7 +30,4 @@ describe('render', () => {
   
 })
 
-describe('state controlled ', () => {
-
-})
 

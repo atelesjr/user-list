@@ -37,7 +37,11 @@ function App() {
       let result
 
       if(field === 'name' && value !== '') {
-        result = list?.filter((user) => user.name === value)
+        result = list?.filter((user) => {
+          const nameLower = user.name.toLowerCase()
+          const valueLower = value.toLowerCase()
+          return (nameLower.includes(valueLower)) 
+        })
       }
 
       if(field === 'age' && value !== '' ) {
@@ -55,7 +59,7 @@ function App() {
     [list],
   )
 
-  useEffect(() => {
+  useEffect(() => {  
     setIsLoading(true)
     setTimeout(setFilter, 3000, search)
     // eslint-disable-next-line 
